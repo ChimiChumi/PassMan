@@ -17,6 +17,10 @@
 mono_crash.*
 
 # Build results
+PassMan.Core/obj/
+PassMan.Desktop/obj/
+PassMan.Core/bin/
+PassMan.Desktop/bin/
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
