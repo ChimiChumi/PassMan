@@ -67,13 +67,14 @@
             addNewSecretToolStripMenuItem.Name = "addNewSecretToolStripMenuItem";
             addNewSecretToolStripMenuItem.Size = new Size(180, 22);
             addNewSecretToolStripMenuItem.Text = "Add New Secret";
+            addNewSecretToolStripMenuItem.Click += AddNewSecret_Click;
             // 
             // logOutToolStripMenuItem
             // 
             logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
             logOutToolStripMenuItem.Size = new Size(180, 22);
             logOutToolStripMenuItem.Text = "Log Out";
-            logOutToolStripMenuItem.Click += LogOutToolStripMenuItem_Click;
+            logOutToolStripMenuItem.Click += LogOut_Click;
             // 
             // VaultForm
             // 

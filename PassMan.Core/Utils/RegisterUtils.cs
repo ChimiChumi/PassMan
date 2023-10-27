@@ -3,13 +3,13 @@ using PassMan.Models;
 
 namespace PassMan.Core
 {
-    public class Register
+    public class RegisterUtils
     {
         private readonly string dbPath = "Data Source=D:\\University\\PassMan\\resources\\data.db";
 
         public string RegisterUser(User user)
         {
-            DataTable table = new DataTable();
+            DataTableUtils table = new DataTableUtils();
             table.CreateTable();
 
             if (EmailExists(user.Email))

@@ -39,7 +39,7 @@ namespace PassMan.Desktop.View
                 return;
             }
 
-            Login login = new Login();
+            LoginUtils login = new LoginUtils();
             string loginResult = login.LoginUser(username, password);
 
             if (loginResult == "Success")

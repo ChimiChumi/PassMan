@@ -21,5 +21,15 @@ namespace PassMan.Desktop.View
         {
             Application.Exit();
         }
+
+        private void AddNewSecret_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LogOut_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

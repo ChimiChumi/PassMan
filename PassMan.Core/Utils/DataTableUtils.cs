@@ -2,7 +2,7 @@
 
 namespace PassMan.Core
 {
-    public class DataTable
+    public class DataTableUtils
     {
         private readonly string dbPath = "Data Source=D:\\University\\PassMan\\resources\\data.db";
         public void CreateTable()

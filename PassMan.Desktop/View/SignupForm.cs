@@ -54,7 +54,7 @@ namespace PassMan.Desktop.View
             }
 
             User user = new User(username, email, password);
-            Register register = new Register();
+            RegisterUtils register = new RegisterUtils();
             string registrationResult = register.RegisterUser(user);
 
             if (registrationResult == "Success")

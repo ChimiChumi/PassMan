@@ -1,6 +1,6 @@
 ﻿using Microsoft.Data.Sqlite;
 
-public class Login
+public class LoginUtils
 {
     private readonly string dbPath = "Data Source=D:\\University\\PassMan\\resources\\data.db";
 
