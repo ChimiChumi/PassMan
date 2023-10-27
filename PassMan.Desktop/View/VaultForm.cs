@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace PassMan.Desktop.View
+﻿namespace PassMan.Desktop.View
 {
     public partial class VaultForm : Form
     {
@@ -24,12 +14,15 @@ namespace PassMan.Desktop.View
 
         private void AddNewSecret_Click(object sender, EventArgs e)
         {
-
+            AddSecretForm addSecretForm = new AddSecretForm();
+            addSecretForm.ShowDialog();
         }
 
         private void LogOut_Click(object sender, EventArgs e)
         {
-
+            LoginForm loginForm = new LoginForm();
+            this.Hide();
+            loginForm.ShowDialog();
         }
     }
 }

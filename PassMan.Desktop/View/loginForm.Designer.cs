@@ -117,6 +117,7 @@
             Controls.Add(label1);
             Name = "LoginForm";
             Text = "Authentication";
+            FormClosing += LoginForm_FormClosing;
             ResumeLayout(false);
             PerformLayout();
         }

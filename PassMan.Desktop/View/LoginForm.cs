@@ -46,8 +46,9 @@ namespace PassMan.Desktop.View
             {
                 MessageBox.Show("Authentication Successful!");
                 VaultForm vault = new VaultForm();
+                this.Hide();
+
                 vault.Show();
-                this.Close();
             }
             else
             {
@@ -55,5 +56,9 @@ namespace PassMan.Desktop.View
             }
         }
 
+        private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

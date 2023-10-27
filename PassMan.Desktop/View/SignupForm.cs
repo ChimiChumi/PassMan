@@ -25,7 +25,10 @@ namespace PassMan.Desktop.View
 
         private void Cancel_Click(object sender, EventArgs e)
         {
-
+            usernameTextBox.Text = string.Empty;
+            emailTextBox.Text = string.Empty;
+            pwdTextBox.Text = string.Empty;
+            repeatPwdTextBox.Text = string.Empty;
         }
 
         private void Signup_Click(object sender, EventArgs e)
