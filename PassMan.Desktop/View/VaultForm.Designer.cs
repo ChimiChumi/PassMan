@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             secretTable = new DataGridView();
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
@@ -47,24 +47,24 @@
             secretTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             secretTable.BackgroundColor = Color.LightSteelBlue;
             secretTable.CellBorderStyle = DataGridViewCellBorderStyle.Sunken;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            secretTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            secretTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             secretTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.NullValue = "*empty*";
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            secretTable.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = SystemColors.Window;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.NullValue = "*empty*";
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            secretTable.DefaultCellStyle = dataGridViewCellStyle4;
             secretTable.Location = new Point(12, 34);
             secretTable.Name = "secretTable";
             secretTable.ReadOnly = true;
@@ -99,16 +99,16 @@
             // 
             addNewSecretToolStripMenuItem.BackColor = Color.Silver;
             addNewSecretToolStripMenuItem.Name = "addNewSecretToolStripMenuItem";
-            addNewSecretToolStripMenuItem.Size = new Size(235, 28);
-            addNewSecretToolStripMenuItem.Text = "Add New Secret";
+            addNewSecretToolStripMenuItem.Size = new Size(269, 28);
+            addNewSecretToolStripMenuItem.Text = "➕ Add New Secret";
             addNewSecretToolStripMenuItem.Click += AddNewSecret_Click;
             // 
             // logOutToolStripMenuItem
             // 
             logOutToolStripMenuItem.BackColor = Color.Silver;
             logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            logOutToolStripMenuItem.Size = new Size(235, 28);
-            logOutToolStripMenuItem.Text = "Log Out";
+            logOutToolStripMenuItem.Size = new Size(269, 28);
+            logOutToolStripMenuItem.Text = "🔐 Log Out";
             logOutToolStripMenuItem.Click += LogOut_Click;
             // 
             // VaultForm

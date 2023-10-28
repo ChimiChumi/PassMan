@@ -75,19 +75,21 @@
             // 
             usernameTextBox.BorderStyle = BorderStyle.FixedSingle;
             usernameTextBox.Cursor = Cursors.IBeam;
+            usernameTextBox.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
             usernameTextBox.Location = new Point(265, 151);
             usernameTextBox.Name = "usernameTextBox";
-            usernameTextBox.Size = new Size(247, 23);
+            usernameTextBox.Size = new Size(247, 25);
             usernameTextBox.TabIndex = 3;
             // 
             // pwdTextBox
             // 
             pwdTextBox.BorderStyle = BorderStyle.FixedSingle;
             pwdTextBox.Cursor = Cursors.IBeam;
+            pwdTextBox.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
             pwdTextBox.Location = new Point(265, 196);
             pwdTextBox.Name = "pwdTextBox";
             pwdTextBox.PasswordChar = '*';
-            pwdTextBox.Size = new Size(247, 23);
+            pwdTextBox.Size = new Size(247, 25);
             pwdTextBox.TabIndex = 4;
             // 
             // loginBtn

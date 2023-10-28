@@ -79,19 +79,21 @@
             // 
             emailTextBox.BorderStyle = BorderStyle.FixedSingle;
             emailTextBox.Cursor = Cursors.IBeam;
+            emailTextBox.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
             emailTextBox.Location = new Point(273, 157);
             emailTextBox.Name = "emailTextBox";
-            emailTextBox.Size = new Size(247, 23);
+            emailTextBox.Size = new Size(247, 25);
             emailTextBox.TabIndex = 2;
             // 
             // pwdTextBox
             // 
             pwdTextBox.BorderStyle = BorderStyle.FixedSingle;
             pwdTextBox.Cursor = Cursors.IBeam;
+            pwdTextBox.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
             pwdTextBox.Location = new Point(273, 198);
             pwdTextBox.Name = "pwdTextBox";
             pwdTextBox.PasswordChar = '*';
-            pwdTextBox.Size = new Size(247, 23);
+            pwdTextBox.Size = new Size(247, 25);
             pwdTextBox.TabIndex = 3;
             // 
             // cancelBtn
@@ -133,10 +135,11 @@
             // 
             repeatPwdTextBox.BorderStyle = BorderStyle.FixedSingle;
             repeatPwdTextBox.Cursor = Cursors.IBeam;
+            repeatPwdTextBox.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
             repeatPwdTextBox.Location = new Point(273, 241);
             repeatPwdTextBox.Name = "repeatPwdTextBox";
             repeatPwdTextBox.PasswordChar = '*';
-            repeatPwdTextBox.Size = new Size(247, 23);
+            repeatPwdTextBox.Size = new Size(247, 25);
             repeatPwdTextBox.TabIndex = 4;
             // 
             // label2
@@ -166,9 +169,10 @@
             // 
             usernameTextBox.BorderStyle = BorderStyle.FixedSingle;
             usernameTextBox.Cursor = Cursors.IBeam;
+            usernameTextBox.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
             usernameTextBox.Location = new Point(273, 118);
             usernameTextBox.Name = "usernameTextBox";
-            usernameTextBox.Size = new Size(247, 23);
+            usernameTextBox.Size = new Size(247, 25);
             usernameTextBox.TabIndex = 1;
             // 
             // label3
