@@ -6,6 +6,7 @@ namespace PassMan.Core
     public class VaultUtils
     {
         private readonly string dbPath = "Data Source=D:\\University\\PassMan\\resources\\data.db";
+        
         public string AddSecret(Vault vault)
         {
             DataTableUtils table = new DataTableUtils();
@@ -17,8 +18,9 @@ namespace PassMan.Core
                 {
                     sql_con.Open();
 
-                    using (var insertSQL = new SqliteCommand("INSERT INTO vault (UserName, WebSite, PassWord) VALUES (@UserName, @WebSite, @PassWord)", sql_con))
+                    using (var insertSQL = new SqliteCommand("INSERT INTO vault (UserId, UserName, WebSite, PassWord) VALUES (@UserId, @UserName, @WebSite, @PassWord)", sql_con))
                     {
+                        insertSQL.Parameters.AddWithValue("@UserId", vault.UserId);
                         insertSQL.Parameters.AddWithValue("@UserName", vault.UserName);
                         insertSQL.Parameters.AddWithValue("@WebSite", vault.WebSite);
                         insertSQL.Parameters.AddWithValue("@PassWord", vault.PassWord);
@@ -30,7 +32,7 @@ namespace PassMan.Core
                         }
                         else
                         {
-                            return "User registration failed!";
+                            return "Something went wrong. Secret not added!";
                         }
                     }
                 }

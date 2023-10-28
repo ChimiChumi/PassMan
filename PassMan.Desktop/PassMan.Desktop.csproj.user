@@ -4,7 +4,7 @@
     <Compile Update="View\AddSecretForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\SignupForm.cs">
+    <Compile Update="View\RegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\VaultForm.cs">

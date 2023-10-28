@@ -3,14 +3,17 @@ using PassMan.Models;
 
 namespace PassMan.Desktop.View
 {
-    public partial class SignupForm : Form
+    public partial class RegisterForm : Form
     {
         [System.Runtime.InteropServices.DllImport("kernel32.dll")]
         private static extern bool AllocConsole();
 
-        public SignupForm()
+        private LoginForm loginForm;
+
+        public RegisterForm(LoginForm loginForm)
         {
             InitializeComponent();
+            this.loginForm = loginForm;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -29,6 +32,9 @@ namespace PassMan.Desktop.View
             emailTextBox.Text = string.Empty;
             pwdTextBox.Text = string.Empty;
             repeatPwdTextBox.Text = string.Empty;
+
+            this.Dispose();
+            loginForm.Show();
         }
 
         private void Signup_Click(object sender, EventArgs e)
@@ -62,7 +68,7 @@ namespace PassMan.Desktop.View
 
             if (registrationResult == "Success")
             {
-                MessageBox.Show($"User registered with username: {username}");
+                MessageBox.Show($"Registration successful!");
                 LoginForm loginForm = new LoginForm();
                 loginForm.Show();
                 this.Close();
@@ -89,6 +95,11 @@ namespace PassMan.Desktop.View
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void SignupForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            loginForm.Show();
         }
     }
 }

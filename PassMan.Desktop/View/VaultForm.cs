@@ -2,9 +2,14 @@
 {
     public partial class VaultForm : Form
     {
-        public VaultForm()
+        private LoginForm loginForm;
+        private readonly int _userId;
+
+        public VaultForm(LoginForm loginForm, int userId)
         {
             InitializeComponent();
+            this.loginForm = loginForm;
+            _userId = userId;
         }
 
         private void LogOutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -14,15 +19,24 @@
 
         private void AddNewSecret_Click(object sender, EventArgs e)
         {
-            AddSecretForm addSecretForm = new AddSecretForm();
+            AddSecretForm addSecretForm = new AddSecretForm(_userId);
             addSecretForm.ShowDialog();
         }
 
         private void LogOut_Click(object sender, EventArgs e)
         {
-            LoginForm loginForm = new LoginForm();
-            this.Hide();
-            loginForm.ShowDialog();
+            this.Dispose();
+            loginForm.Show();
+        }
+
+        private void VaultForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            loginForm.Show();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

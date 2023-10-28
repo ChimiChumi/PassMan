@@ -1,7 +1,4 @@
-﻿using PassMan.Core;
-using PassMan.Models;
-
-namespace PassMan.Desktop.View
+﻿namespace PassMan.Desktop.View
 {
     public partial class LoginForm : Form
     {
@@ -23,11 +20,6 @@ namespace PassMan.Desktop.View
 
         }
 
-        private void Cancel_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Login_Click(object sender, EventArgs e)
         {
             string username = usernameTextBox.Text.Trim();
@@ -40,25 +32,39 @@ namespace PassMan.Desktop.View
             }
 
             LoginUtils login = new LoginUtils();
-            string loginResult = login.LoginUser(username, password);
+            var loginResult = login.LoginUser(username, password);
 
-            if (loginResult == "Success")
+            if (loginResult.IsSuccess)
             {
                 MessageBox.Show("Authentication Successful!");
-                VaultForm vault = new VaultForm();
-                this.Hide();
 
-                vault.Show();
+                if (loginResult.UserId.HasValue)
+                {
+                    VaultForm vault = new VaultForm(this, loginResult.UserId.Value);
+                    this.Hide();
+                    vault.Show();
+                }
+                else
+                {
+                    MessageBox.Show("User ID is missing. Cannot proceed.");
+                }
             }
             else
             {
-                MessageBox.Show($"Authentication Failed! {loginResult}");
+                MessageBox.Show($"Authentication Failed! {loginResult.ErrorMessage}");
             }
         }
 
         private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.Dispose();
+        }
+
+        private void Register_Click(object sender, EventArgs e)
+        {
+            RegisterForm signupForm = new RegisterForm(this);
+            this.Hide();
+            signupForm.Show();
         }
     }
 }

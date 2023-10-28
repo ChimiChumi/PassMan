@@ -14,7 +14,8 @@ namespace PassMan.Models
         }
 
         [Key]
-        public int UserId { get; set; }
+        [Column("id")]
+        public int Id { get; set; }
 
         [Required]
         public string UserName { get; set; } = null!;

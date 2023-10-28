@@ -3,8 +3,17 @@
 public class LoginUtils
 {
     private readonly string dbPath = "Data Source=D:\\University\\PassMan\\resources\\data.db";
+    [System.Runtime.InteropServices.DllImport("kernel32.dll")]
+    private static extern bool AllocConsole();
 
-    public string LoginUser(string username, string password)
+    public class LoginResult
+    {
+        public bool IsSuccess { get; set; }
+        public string? ErrorMessage { get; set; }
+        public int? UserId { get; set; }
+    }
+
+    public LoginResult LoginUser(string username, string password)
     {
         try
         {
@@ -12,27 +21,39 @@ public class LoginUtils
             {
                 sql_con.Open();
 
-                using (var selectSQL = new SqliteCommand("SELECT PassWord FROM users WHERE Email = @Email OR UserName = @UserName", sql_con))
+                using (var selectSQL = new SqliteCommand("SELECT id, PassWord FROM users WHERE Email = @UserIdentifier OR UserName = @UserIdentifier", sql_con))
                 {
-                    selectSQL.Parameters.AddWithValue("@Email", username);
-                    selectSQL.Parameters.AddWithValue("@UserName", username);
-                    var storedPassword = (string)selectSQL.ExecuteScalar();
+                    selectSQL.Parameters.AddWithValue("@UserIdentifier", username);
+                    using (var reader = selectSQL.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            var userId = reader.GetInt32(0);
+                            var storedPassword = reader.GetString(1);
 
-                    if (storedPassword != null && VerifyPassword(password, storedPassword))
-                    {
-                        return "Success";
-                    }
-                    else
-                    {
-                        return "Invalid username or password.";
+                            if (VerifyPassword(password, storedPassword))
+                            {
+                                /*AllocConsole();
+                                Console.WriteLine("User ID: " + userId);*/
+                                return new LoginResult { IsSuccess = true, UserId = userId };
+                            }
+                            else
+                            {
+                                return new LoginResult { IsSuccess = false, ErrorMessage = "Invalid username or password." };
+                            }
+                        }
+                        else
+                        {
+                            return new LoginResult { IsSuccess = false, ErrorMessage = "Invalid username or password." };
+                        }
                     }
                 }
             }
         }
+
         catch (Exception ex)
         {
-            // Logging the exception might be a good idea here.
-            return "An error occurred during login: " + ex.Message;
+            return new LoginResult { IsSuccess = false, ErrorMessage = "An error occurred during login: " + ex.Message };
         }
     }
 

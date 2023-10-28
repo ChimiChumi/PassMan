@@ -1,6 +1,6 @@
 ﻿namespace PassMan.Desktop.View
 {
-    partial class SignupForm
+    partial class RegisterForm
     {
         /// <summary>
         /// Required designer variable.
@@ -44,7 +44,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(366, 30);
+            label1.Location = new Point(270, 24);
             label1.Name = "label1";
             label1.Size = new Size(60, 15);
             label1.TabIndex = 0;
@@ -54,7 +54,7 @@
             // emailLabel
             // 
             emailLabel.AutoSize = true;
-            emailLabel.Location = new Point(265, 138);
+            emailLabel.Location = new Point(169, 132);
             emailLabel.Name = "emailLabel";
             emailLabel.Size = new Size(36, 15);
             emailLabel.TabIndex = 6;
@@ -64,7 +64,7 @@
             // pwdLabel
             // 
             pwdLabel.AutoSize = true;
-            pwdLabel.Location = new Point(244, 183);
+            pwdLabel.Location = new Point(148, 177);
             pwdLabel.Name = "pwdLabel";
             pwdLabel.Size = new Size(57, 15);
             pwdLabel.TabIndex = 7;
@@ -73,7 +73,7 @@
             // emailTextBox
             // 
             emailTextBox.BorderStyle = BorderStyle.FixedSingle;
-            emailTextBox.Location = new Point(333, 136);
+            emailTextBox.Location = new Point(237, 130);
             emailTextBox.Name = "emailTextBox";
             emailTextBox.Size = new Size(247, 23);
             emailTextBox.TabIndex = 2;
@@ -81,7 +81,7 @@
             // pwdTextBox
             // 
             pwdTextBox.BorderStyle = BorderStyle.FixedSingle;
-            pwdTextBox.Location = new Point(333, 181);
+            pwdTextBox.Location = new Point(237, 175);
             pwdTextBox.Name = "pwdTextBox";
             pwdTextBox.PasswordChar = '*';
             pwdTextBox.Size = new Size(247, 23);
@@ -89,7 +89,7 @@
             // 
             // cancelBtn
             // 
-            cancelBtn.Location = new Point(293, 308);
+            cancelBtn.Location = new Point(197, 302);
             cancelBtn.Name = "cancelBtn";
             cancelBtn.Size = new Size(100, 31);
             cancelBtn.TabIndex = 9;
@@ -99,7 +99,7 @@
             // 
             // signupBtn
             // 
-            signupBtn.Location = new Point(445, 308);
+            signupBtn.Location = new Point(349, 302);
             signupBtn.Name = "signupBtn";
             signupBtn.Size = new Size(87, 31);
             signupBtn.TabIndex = 10;
@@ -110,7 +110,7 @@
             // repeatPwdTextBox
             // 
             repeatPwdTextBox.BorderStyle = BorderStyle.FixedSingle;
-            repeatPwdTextBox.Location = new Point(333, 226);
+            repeatPwdTextBox.Location = new Point(237, 220);
             repeatPwdTextBox.Name = "repeatPwdTextBox";
             repeatPwdTextBox.PasswordChar = '*';
             repeatPwdTextBox.Size = new Size(247, 23);
@@ -119,7 +119,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(205, 228);
+            label2.Location = new Point(109, 222);
             label2.Name = "label2";
             label2.Size = new Size(96, 15);
             label2.TabIndex = 8;
@@ -128,7 +128,7 @@
             // usernameLabel
             // 
             usernameLabel.AutoSize = true;
-            usernameLabel.Location = new Point(244, 94);
+            usernameLabel.Location = new Point(148, 88);
             usernameLabel.Name = "usernameLabel";
             usernameLabel.Size = new Size(60, 15);
             usernameLabel.TabIndex = 5;
@@ -138,16 +138,16 @@
             // usernameTextBox
             // 
             usernameTextBox.BorderStyle = BorderStyle.FixedSingle;
-            usernameTextBox.Location = new Point(333, 92);
+            usernameTextBox.Location = new Point(237, 86);
             usernameTextBox.Name = "usernameTextBox";
             usernameTextBox.Size = new Size(247, 23);
             usernameTextBox.TabIndex = 1;
             // 
-            // signupForm
+            // SignupForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(599, 364);
             Controls.Add(usernameTextBox);
             Controls.Add(usernameLabel);
             Controls.Add(label2);
@@ -159,8 +159,9 @@
             Controls.Add(pwdLabel);
             Controls.Add(emailLabel);
             Controls.Add(label1);
-            Name = "signupForm";
+            Name = "SignupForm";
             Text = "Sign Up";
+            FormClosing += SignupForm_FormClosing;
             ResumeLayout(false);
             PerformLayout();
         }

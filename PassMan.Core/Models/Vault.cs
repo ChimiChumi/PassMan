@@ -6,11 +6,19 @@ namespace PassMan.Models
 {
     public class Vault
     {
+        public Vault(int userId, string username, string website, string password)
+        {
+            UserId = userId;
+            UserName = username;
+            WebSite = website;
+            PassWord = password;
+        }
+
         [Key]
         public int Id { get; set; }
 
         [ForeignKey("UserId")]
-        public string UserId { get; set; } = null!;
+        public int UserId { get; set; }
 
         [Required]
         public string UserName { get; set; } = null!;

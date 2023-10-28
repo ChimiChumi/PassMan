@@ -45,6 +45,7 @@
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(776, 411);
             dataGridView1.TabIndex = 0;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // menuStrip1
             // 
@@ -65,14 +66,14 @@
             // addNewSecretToolStripMenuItem
             // 
             addNewSecretToolStripMenuItem.Name = "addNewSecretToolStripMenuItem";
-            addNewSecretToolStripMenuItem.Size = new Size(180, 22);
+            addNewSecretToolStripMenuItem.Size = new Size(158, 22);
             addNewSecretToolStripMenuItem.Text = "Add New Secret";
             addNewSecretToolStripMenuItem.Click += AddNewSecret_Click;
             // 
             // logOutToolStripMenuItem
             // 
             logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            logOutToolStripMenuItem.Size = new Size(180, 22);
+            logOutToolStripMenuItem.Size = new Size(158, 22);
             logOutToolStripMenuItem.Text = "Log Out";
             logOutToolStripMenuItem.Click += LogOut_Click;
             // 
@@ -86,6 +87,7 @@
             MainMenuStrip = menuStrip1;
             Name = "VaultForm";
             Text = "VaultForm";
+            FormClosing += VaultForm_FormClosing;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();

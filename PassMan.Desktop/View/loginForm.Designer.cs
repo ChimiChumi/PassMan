@@ -40,7 +40,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(362, 54);
+            label1.Location = new Point(258, 60);
             label1.Name = "label1";
             label1.Size = new Size(60, 15);
             label1.TabIndex = 0;
@@ -50,7 +50,7 @@
             // usernameLabel
             // 
             usernameLabel.AutoSize = true;
-            usernameLabel.Location = new Point(223, 117);
+            usernameLabel.Location = new Point(119, 123);
             usernameLabel.Name = "usernameLabel";
             usernameLabel.Size = new Size(60, 15);
             usernameLabel.TabIndex = 1;
@@ -60,7 +60,7 @@
             // pwdLabel
             // 
             pwdLabel.AutoSize = true;
-            pwdLabel.Location = new Point(223, 159);
+            pwdLabel.Location = new Point(119, 165);
             pwdLabel.Name = "pwdLabel";
             pwdLabel.Size = new Size(57, 15);
             pwdLabel.TabIndex = 2;
@@ -69,7 +69,7 @@
             // usernameTextBox
             // 
             usernameTextBox.BorderStyle = BorderStyle.FixedSingle;
-            usernameTextBox.Location = new Point(333, 114);
+            usernameTextBox.Location = new Point(229, 120);
             usernameTextBox.Name = "usernameTextBox";
             usernameTextBox.Size = new Size(247, 23);
             usernameTextBox.TabIndex = 3;
@@ -77,7 +77,7 @@
             // pwdTextBox
             // 
             pwdTextBox.BorderStyle = BorderStyle.FixedSingle;
-            pwdTextBox.Location = new Point(333, 159);
+            pwdTextBox.Location = new Point(229, 165);
             pwdTextBox.Name = "pwdTextBox";
             pwdTextBox.PasswordChar = '*';
             pwdTextBox.Size = new Size(247, 23);
@@ -85,17 +85,17 @@
             // 
             // cancelBtn
             // 
-            cancelBtn.Location = new Point(276, 233);
+            cancelBtn.Location = new Point(172, 255);
             cancelBtn.Name = "cancelBtn";
             cancelBtn.Size = new Size(100, 31);
             cancelBtn.TabIndex = 5;
-            cancelBtn.Text = "Cancel";
+            cancelBtn.Text = "Register";
             cancelBtn.UseVisualStyleBackColor = true;
-            cancelBtn.Click += Cancel_Click;
+            cancelBtn.Click += Register_Click;
             // 
             // loginBtn
             // 
-            loginBtn.Location = new Point(437, 233);
+            loginBtn.Location = new Point(331, 255);
             loginBtn.Name = "loginBtn";
             loginBtn.Size = new Size(87, 31);
             loginBtn.TabIndex = 6;
@@ -107,7 +107,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(599, 364);
             Controls.Add(loginBtn);
             Controls.Add(cancelBtn);
             Controls.Add(pwdTextBox);
