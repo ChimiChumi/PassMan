@@ -45,7 +45,7 @@
             secretTable.AllowUserToDeleteRows = false;
             secretTable.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             secretTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            secretTable.BorderStyle = BorderStyle.Fixed3D;
+            secretTable.BackgroundColor = Color.LightSteelBlue;
             secretTable.CellBorderStyle = DataGridViewCellBorderStyle.Sunken;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
@@ -65,22 +65,22 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             secretTable.DefaultCellStyle = dataGridViewCellStyle2;
-            secretTable.Location = new Point(12, 39);
+            secretTable.Location = new Point(12, 34);
             secretTable.Name = "secretTable";
             secretTable.ReadOnly = true;
             secretTable.RowTemplate.Height = 25;
-            secretTable.Size = new Size(531, 399);
+            secretTable.Size = new Size(531, 404);
             secretTable.TabIndex = 0;
             secretTable.CellContentClick += dataGridView1_CellContentClick;
             // 
             // menuStrip1
             // 
-            menuStrip1.BackColor = Color.LightSlateGray;
+            menuStrip1.BackColor = Color.Transparent;
             menuStrip1.Font = new Font("MV Boli", 12F, FontStyle.Bold, GraphicsUnit.Point);
             menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(555, 29);
+            menuStrip1.Size = new Size(555, 31);
             menuStrip1.TabIndex = 1;
             menuStrip1.Text = "menuStrip1";
             menuStrip1.ItemClicked += menuStrip1_ItemClicked;
@@ -88,25 +88,26 @@
             // fileToolStripMenuItem
             // 
             fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { addNewSecretToolStripMenuItem, logOutToolStripMenuItem });
+            fileToolStripMenuItem.Font = new Font("MV Boli", 13F, FontStyle.Bold, GraphicsUnit.Point);
             fileToolStripMenuItem.ForeColor = Color.Black;
             fileToolStripMenuItem.Margin = new Padding(15, 0, 0, 0);
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            fileToolStripMenuItem.Size = new Size(67, 25);
+            fileToolStripMenuItem.Size = new Size(72, 27);
             fileToolStripMenuItem.Text = "Menu";
             // 
             // addNewSecretToolStripMenuItem
             // 
-            addNewSecretToolStripMenuItem.BackColor = Color.LightSlateGray;
+            addNewSecretToolStripMenuItem.BackColor = Color.Silver;
             addNewSecretToolStripMenuItem.Name = "addNewSecretToolStripMenuItem";
-            addNewSecretToolStripMenuItem.Size = new Size(220, 26);
+            addNewSecretToolStripMenuItem.Size = new Size(235, 28);
             addNewSecretToolStripMenuItem.Text = "Add New Secret";
             addNewSecretToolStripMenuItem.Click += AddNewSecret_Click;
             // 
             // logOutToolStripMenuItem
             // 
-            logOutToolStripMenuItem.BackColor = Color.LightSlateGray;
+            logOutToolStripMenuItem.BackColor = Color.Silver;
             logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            logOutToolStripMenuItem.Size = new Size(220, 26);
+            logOutToolStripMenuItem.Size = new Size(235, 28);
             logOutToolStripMenuItem.Text = "Log Out";
             logOutToolStripMenuItem.Click += LogOut_Click;
             // 
@@ -115,7 +116,7 @@
             AutoScaleMode = AutoScaleMode.Inherit;
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            BackColor = Color.LightSteelBlue;
+            BackColor = Color.Gray;
             ClientSize = new Size(555, 450);
             Controls.Add(secretTable);
             Controls.Add(menuStrip1);

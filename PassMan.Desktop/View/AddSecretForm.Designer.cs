@@ -42,7 +42,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Cooper Black", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(47, 23);
+            label1.Location = new Point(47, 25);
             label1.Name = "label1";
             label1.Size = new Size(68, 17);
             label1.TabIndex = 0;
@@ -52,7 +52,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Cooper Black", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(31, 59);
+            label2.Location = new Point(31, 61);
             label2.Name = "label2";
             label2.Size = new Size(84, 17);
             label2.TabIndex = 1;
@@ -62,7 +62,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Cooper Black", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(32, 95);
+            label3.Location = new Point(32, 97);
             label3.Name = "label3";
             label3.Size = new Size(83, 17);
             label3.TabIndex = 2;
@@ -71,25 +71,28 @@
             // secretSiteTextBox
             // 
             secretSiteTextBox.BackColor = SystemColors.Window;
+            secretSiteTextBox.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             secretSiteTextBox.Location = new Point(133, 22);
             secretSiteTextBox.Name = "secretSiteTextBox";
-            secretSiteTextBox.Size = new Size(165, 23);
+            secretSiteTextBox.Size = new Size(165, 25);
             secretSiteTextBox.TabIndex = 3;
             // 
             // secretUsernameTextBox
             // 
+            secretUsernameTextBox.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             secretUsernameTextBox.Location = new Point(133, 58);
             secretUsernameTextBox.Name = "secretUsernameTextBox";
-            secretUsernameTextBox.Size = new Size(165, 23);
+            secretUsernameTextBox.Size = new Size(165, 25);
             secretUsernameTextBox.TabIndex = 4;
             // 
             // secretPwdTextBox
             // 
             secretPwdTextBox.BackColor = SystemColors.Window;
+            secretPwdTextBox.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             secretPwdTextBox.Location = new Point(133, 94);
             secretPwdTextBox.Name = "secretPwdTextBox";
             secretPwdTextBox.PasswordChar = '*';
-            secretPwdTextBox.Size = new Size(165, 23);
+            secretPwdTextBox.Size = new Size(165, 25);
             secretPwdTextBox.TabIndex = 5;
             // 
             // vaultCancelButton
