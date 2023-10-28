@@ -39,14 +39,17 @@
             label2 = new Label();
             usernameLabel = new Label();
             usernameTextBox = new TextBox();
+            label3 = new Label();
+            label4 = new Label();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(270, 24);
+            label1.Font = new Font("MV Boli", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(226, 9);
             label1.Name = "label1";
-            label1.Size = new Size(60, 15);
+            label1.Size = new Size(150, 39);
             label1.TabIndex = 0;
             label1.Text = "Welcome!";
             label1.Click += label1_Click;
@@ -54,9 +57,10 @@
             // emailLabel
             // 
             emailLabel.AutoSize = true;
-            emailLabel.Location = new Point(169, 132);
+            emailLabel.Font = new Font("Cooper Black", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            emailLabel.Location = new Point(165, 161);
             emailLabel.Name = "emailLabel";
-            emailLabel.Size = new Size(36, 15);
+            emailLabel.Size = new Size(56, 19);
             emailLabel.TabIndex = 6;
             emailLabel.Text = "Email";
             emailLabel.Click += label2_Click;
@@ -64,16 +68,18 @@
             // pwdLabel
             // 
             pwdLabel.AutoSize = true;
-            pwdLabel.Location = new Point(148, 177);
+            pwdLabel.Font = new Font("Cooper Black", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            pwdLabel.Location = new Point(127, 200);
             pwdLabel.Name = "pwdLabel";
-            pwdLabel.Size = new Size(57, 15);
+            pwdLabel.Size = new Size(90, 19);
             pwdLabel.TabIndex = 7;
             pwdLabel.Text = "Password";
             // 
             // emailTextBox
             // 
             emailTextBox.BorderStyle = BorderStyle.FixedSingle;
-            emailTextBox.Location = new Point(237, 130);
+            emailTextBox.Cursor = Cursors.IBeam;
+            emailTextBox.Location = new Point(273, 157);
             emailTextBox.Name = "emailTextBox";
             emailTextBox.Size = new Size(247, 23);
             emailTextBox.TabIndex = 2;
@@ -81,7 +87,8 @@
             // pwdTextBox
             // 
             pwdTextBox.BorderStyle = BorderStyle.FixedSingle;
-            pwdTextBox.Location = new Point(237, 175);
+            pwdTextBox.Cursor = Cursors.IBeam;
+            pwdTextBox.Location = new Point(273, 198);
             pwdTextBox.Name = "pwdTextBox";
             pwdTextBox.PasswordChar = '*';
             pwdTextBox.Size = new Size(247, 23);
@@ -89,28 +96,44 @@
             // 
             // cancelBtn
             // 
-            cancelBtn.Location = new Point(197, 302);
+            cancelBtn.BackColor = Color.PaleVioletRed;
+            cancelBtn.Cursor = Cursors.Hand;
+            cancelBtn.FlatAppearance.BorderColor = Color.DimGray;
+            cancelBtn.FlatAppearance.BorderSize = 2;
+            cancelBtn.FlatStyle = FlatStyle.Flat;
+            cancelBtn.Font = new Font("MV Boli", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            cancelBtn.ForeColor = SystemColors.ControlLightLight;
+            cancelBtn.Location = new Point(165, 302);
             cancelBtn.Name = "cancelBtn";
             cancelBtn.Size = new Size(100, 31);
             cancelBtn.TabIndex = 9;
             cancelBtn.Text = "Cancel";
-            cancelBtn.UseVisualStyleBackColor = true;
+            cancelBtn.UseVisualStyleBackColor = false;
             cancelBtn.Click += Cancel_Click;
             // 
             // signupBtn
             // 
-            signupBtn.Location = new Point(349, 302);
+            signupBtn.BackColor = Color.SteelBlue;
+            signupBtn.Cursor = Cursors.Hand;
+            signupBtn.FlatAppearance.BorderColor = Color.DimGray;
+            signupBtn.FlatAppearance.BorderSize = 2;
+            signupBtn.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            signupBtn.FlatStyle = FlatStyle.Flat;
+            signupBtn.Font = new Font("MV Boli", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            signupBtn.ForeColor = SystemColors.ControlLightLight;
+            signupBtn.Location = new Point(346, 302);
             signupBtn.Name = "signupBtn";
             signupBtn.Size = new Size(87, 31);
             signupBtn.TabIndex = 10;
             signupBtn.Text = "Sign Up";
-            signupBtn.UseVisualStyleBackColor = true;
+            signupBtn.UseVisualStyleBackColor = false;
             signupBtn.Click += Signup_Click;
             // 
             // repeatPwdTextBox
             // 
             repeatPwdTextBox.BorderStyle = BorderStyle.FixedSingle;
-            repeatPwdTextBox.Location = new Point(237, 220);
+            repeatPwdTextBox.Cursor = Cursors.IBeam;
+            repeatPwdTextBox.Location = new Point(273, 241);
             repeatPwdTextBox.Name = "repeatPwdTextBox";
             repeatPwdTextBox.PasswordChar = '*';
             repeatPwdTextBox.Size = new Size(247, 23);
@@ -119,18 +142,22 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(109, 222);
+            label2.Font = new Font("Cooper Black", 10.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(166, 236);
             label2.Name = "label2";
-            label2.Size = new Size(96, 15);
+            label2.Size = new Size(55, 16);
             label2.TabIndex = 8;
-            label2.Text = "Repeat Password";
+            label2.Text = "Repeat";
+            label2.Click += label2_Click_1;
             // 
             // usernameLabel
             // 
             usernameLabel.AutoSize = true;
-            usernameLabel.Location = new Point(148, 88);
+            usernameLabel.FlatStyle = FlatStyle.Popup;
+            usernameLabel.Font = new Font("Cooper Black", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            usernameLabel.Location = new Point(131, 121);
             usernameLabel.Name = "usernameLabel";
-            usernameLabel.Size = new Size(60, 15);
+            usernameLabel.Size = new Size(90, 19);
             usernameLabel.TabIndex = 5;
             usernameLabel.Text = "Username";
             usernameLabel.Click += label3_Click;
@@ -138,16 +165,41 @@
             // usernameTextBox
             // 
             usernameTextBox.BorderStyle = BorderStyle.FixedSingle;
-            usernameTextBox.Location = new Point(237, 86);
+            usernameTextBox.Cursor = Cursors.IBeam;
+            usernameTextBox.Location = new Point(273, 118);
             usernameTextBox.Name = "usernameTextBox";
             usernameTextBox.Size = new Size(247, 23);
             usernameTextBox.TabIndex = 1;
             // 
-            // SignupForm
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Cooper Black", 10.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(144, 253);
+            label3.Name = "label3";
+            label3.Size = new Size(77, 16);
+            label3.TabIndex = 11;
+            label3.Text = "Password";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("MV Boli", 14.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(127, 72);
+            label4.Name = "label4";
+            label4.Size = new Size(360, 26);
+            label4.TabIndex = 12;
+            label4.Text = "Let's create your personal vault:";
+            label4.Click += label4_Click;
+            // 
+            // RegisterForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.LightSteelBlue;
             ClientSize = new Size(599, 364);
+            Controls.Add(label4);
+            Controls.Add(label3);
             Controls.Add(usernameTextBox);
             Controls.Add(usernameLabel);
             Controls.Add(label2);
@@ -159,9 +211,10 @@
             Controls.Add(pwdLabel);
             Controls.Add(emailLabel);
             Controls.Add(label1);
-            Name = "SignupForm";
+            Name = "RegisterForm";
             Text = "Sign Up";
             FormClosing += SignupForm_FormClosing;
+            Load += RegisterForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -179,5 +232,7 @@
         private Label label2;
         private Label usernameLabel;
         private TextBox usernameTextBox;
+        private Label label3;
+        private Label label4;
     }
 }

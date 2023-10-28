@@ -44,6 +44,12 @@ namespace PassMan.Desktop.View
             string password = pwdTextBox.Text;
             string pwdRepeat = repeatPwdTextBox.Text;
 
+            usernameTextBox.Text = null;
+            emailTextBox.Text = null;
+            pwdTextBox.Text = null;
+            repeatPwdTextBox.Text = null;
+
+
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
             {
                 MessageBox.Show("Input fields cannot be empty!");
@@ -70,7 +76,6 @@ namespace PassMan.Desktop.View
             {
                 MessageBox.Show($"Registration successful!");
                 LoginForm loginForm = new LoginForm();
-                loginForm.Show();
                 this.Close();
             }
             else
@@ -100,6 +105,21 @@ namespace PassMan.Desktop.View
         private void SignupForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             loginForm.Show();
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RegisterForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

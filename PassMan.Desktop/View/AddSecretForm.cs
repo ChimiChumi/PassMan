@@ -40,7 +40,7 @@ namespace PassMan.Desktop.View
 
             if (result == "Success")
             {
-                MessageBox.Show($"Secret saved successfully!");
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             else
@@ -51,7 +51,7 @@ namespace PassMan.Desktop.View
 
         private void addCancel_Click(object sender, EventArgs e)
         {
-           this.Dispose ();
+            this.Dispose();
         }
     }
 }

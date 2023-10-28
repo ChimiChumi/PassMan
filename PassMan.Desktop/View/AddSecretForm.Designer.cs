@@ -34,7 +34,6 @@
             secretSiteTextBox = new TextBox();
             secretUsernameTextBox = new TextBox();
             secretPwdTextBox = new TextBox();
-            label4 = new Label();
             vaultCancelButton = new Button();
             vaultAddButton = new Button();
             SuspendLayout();
@@ -42,92 +41,89 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(56, 42);
+            label1.Font = new Font("Cooper Black", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(47, 23);
             label1.Name = "label1";
-            label1.Size = new Size(49, 15);
+            label1.Size = new Size(68, 17);
             label1.TabIndex = 0;
             label1.Text = "Website";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(45, 74);
+            label2.Font = new Font("Cooper Black", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(31, 59);
             label2.Name = "label2";
-            label2.Size = new Size(60, 15);
+            label2.Size = new Size(84, 17);
             label2.TabIndex = 1;
             label2.Text = "Username";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(48, 110);
+            label3.Font = new Font("Cooper Black", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(32, 95);
             label3.Name = "label3";
-            label3.Size = new Size(57, 15);
+            label3.Size = new Size(83, 17);
             label3.TabIndex = 2;
             label3.Text = "Password";
             // 
             // secretSiteTextBox
             // 
-            secretSiteTextBox.Location = new Point(127, 39);
+            secretSiteTextBox.BackColor = SystemColors.Window;
+            secretSiteTextBox.Location = new Point(133, 22);
             secretSiteTextBox.Name = "secretSiteTextBox";
-            secretSiteTextBox.PlaceholderText = "ex: youtube.com, ...";
-            secretSiteTextBox.Size = new Size(146, 23);
+            secretSiteTextBox.Size = new Size(165, 23);
             secretSiteTextBox.TabIndex = 3;
             // 
             // secretUsernameTextBox
             // 
-            secretUsernameTextBox.Location = new Point(127, 71);
+            secretUsernameTextBox.Location = new Point(133, 58);
             secretUsernameTextBox.Name = "secretUsernameTextBox";
-            secretUsernameTextBox.PlaceholderText = "ex: Charlie123, ...";
-            secretUsernameTextBox.Size = new Size(146, 23);
+            secretUsernameTextBox.Size = new Size(165, 23);
             secretUsernameTextBox.TabIndex = 4;
             // 
             // secretPwdTextBox
             // 
-            secretPwdTextBox.Location = new Point(127, 107);
+            secretPwdTextBox.BackColor = SystemColors.Window;
+            secretPwdTextBox.Location = new Point(133, 94);
             secretPwdTextBox.Name = "secretPwdTextBox";
             secretPwdTextBox.PasswordChar = '*';
-            secretPwdTextBox.Size = new Size(146, 23);
+            secretPwdTextBox.Size = new Size(165, 23);
             secretPwdTextBox.TabIndex = 5;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(92, 9);
-            label4.Name = "label4";
-            label4.Size = new Size(139, 21);
-            label4.TabIndex = 6;
-            label4.Text = "Secret to be saved:";
             // 
             // vaultCancelButton
             // 
-            vaultCancelButton.Location = new Point(69, 147);
+            vaultCancelButton.BackColor = Color.RosyBrown;
+            vaultCancelButton.Font = new Font("MV Boli", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            vaultCancelButton.Location = new Point(69, 141);
             vaultCancelButton.Name = "vaultCancelButton";
-            vaultCancelButton.Size = new Size(75, 23);
+            vaultCancelButton.Size = new Size(76, 34);
             vaultCancelButton.TabIndex = 7;
             vaultCancelButton.Text = "Cancel";
-            vaultCancelButton.UseVisualStyleBackColor = true;
+            vaultCancelButton.UseVisualStyleBackColor = false;
             vaultCancelButton.Click += addCancel_Click;
             // 
             // vaultAddButton
             // 
-            vaultAddButton.Location = new Point(168, 147);
+            vaultAddButton.BackColor = Color.DarkSeaGreen;
+            vaultAddButton.Font = new Font("MV Boli", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            vaultAddButton.Location = new Point(181, 141);
             vaultAddButton.Name = "vaultAddButton";
-            vaultAddButton.Size = new Size(75, 23);
+            vaultAddButton.Size = new Size(80, 34);
             vaultAddButton.TabIndex = 8;
             vaultAddButton.Text = "Add";
-            vaultAddButton.UseVisualStyleBackColor = true;
+            vaultAddButton.UseVisualStyleBackColor = false;
             vaultAddButton.Click += addEntry_Click;
             // 
             // AddSecretForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.SlateGray;
             ClientSize = new Size(323, 182);
             Controls.Add(vaultAddButton);
             Controls.Add(vaultCancelButton);
-            Controls.Add(label4);
             Controls.Add(secretPwdTextBox);
             Controls.Add(secretUsernameTextBox);
             Controls.Add(secretSiteTextBox);
@@ -150,7 +146,6 @@
         private TextBox secretSiteTextBox;
         private TextBox secretUsernameTextBox;
         private TextBox secretPwdTextBox;
-        private Label label4;
         private Button vaultCancelButton;
         private Button vaultAddButton;
     }

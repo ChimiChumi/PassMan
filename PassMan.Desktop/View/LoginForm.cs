@@ -36,8 +36,6 @@
 
             if (loginResult.IsSuccess)
             {
-                MessageBox.Show("Authentication Successful!");
-
                 if (loginResult.UserId.HasValue)
                 {
                     VaultForm vault = new VaultForm(this, loginResult.UserId.Value);
@@ -65,6 +63,11 @@
             RegisterForm signupForm = new RegisterForm(this);
             this.Hide();
             signupForm.Show();
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

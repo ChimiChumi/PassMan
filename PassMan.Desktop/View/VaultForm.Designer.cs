@@ -28,67 +28,102 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            secretTable = new DataGridView();
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
             addNewSecretToolStripMenuItem = new ToolStripMenuItem();
             logOutToolStripMenuItem = new ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)secretTable).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
-            // dataGridView1
+            // secretTable
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 27);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(776, 411);
-            dataGridView1.TabIndex = 0;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            secretTable.AllowUserToAddRows = false;
+            secretTable.AllowUserToDeleteRows = false;
+            secretTable.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            secretTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            secretTable.BorderStyle = BorderStyle.Fixed3D;
+            secretTable.CellBorderStyle = DataGridViewCellBorderStyle.Sunken;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            secretTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            secretTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.NullValue = "*empty*";
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            secretTable.DefaultCellStyle = dataGridViewCellStyle2;
+            secretTable.Location = new Point(12, 39);
+            secretTable.Name = "secretTable";
+            secretTable.ReadOnly = true;
+            secretTable.RowTemplate.Height = 25;
+            secretTable.Size = new Size(531, 399);
+            secretTable.TabIndex = 0;
+            secretTable.CellContentClick += dataGridView1_CellContentClick;
             // 
             // menuStrip1
             // 
+            menuStrip1.BackColor = Color.LightSlateGray;
+            menuStrip1.Font = new Font("MV Boli", 12F, FontStyle.Bold, GraphicsUnit.Point);
             menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(800, 24);
+            menuStrip1.Size = new Size(555, 29);
             menuStrip1.TabIndex = 1;
             menuStrip1.Text = "menuStrip1";
+            menuStrip1.ItemClicked += menuStrip1_ItemClicked;
             // 
             // fileToolStripMenuItem
             // 
             fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { addNewSecretToolStripMenuItem, logOutToolStripMenuItem });
+            fileToolStripMenuItem.ForeColor = Color.Black;
+            fileToolStripMenuItem.Margin = new Padding(15, 0, 0, 0);
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            fileToolStripMenuItem.Size = new Size(37, 20);
-            fileToolStripMenuItem.Text = "File";
+            fileToolStripMenuItem.Size = new Size(67, 25);
+            fileToolStripMenuItem.Text = "Menu";
             // 
             // addNewSecretToolStripMenuItem
             // 
+            addNewSecretToolStripMenuItem.BackColor = Color.LightSlateGray;
             addNewSecretToolStripMenuItem.Name = "addNewSecretToolStripMenuItem";
-            addNewSecretToolStripMenuItem.Size = new Size(158, 22);
+            addNewSecretToolStripMenuItem.Size = new Size(220, 26);
             addNewSecretToolStripMenuItem.Text = "Add New Secret";
             addNewSecretToolStripMenuItem.Click += AddNewSecret_Click;
             // 
             // logOutToolStripMenuItem
             // 
+            logOutToolStripMenuItem.BackColor = Color.LightSlateGray;
             logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            logOutToolStripMenuItem.Size = new Size(158, 22);
+            logOutToolStripMenuItem.Size = new Size(220, 26);
             logOutToolStripMenuItem.Text = "Log Out";
             logOutToolStripMenuItem.Click += LogOut_Click;
             // 
             // VaultForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(dataGridView1);
+            AutoScaleMode = AutoScaleMode.Inherit;
+            AutoSize = true;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            BackColor = Color.LightSteelBlue;
+            ClientSize = new Size(555, 450);
+            Controls.Add(secretTable);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "VaultForm";
             Text = "VaultForm";
             FormClosing += VaultForm_FormClosing;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)secretTable).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -97,7 +132,7 @@
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView secretTable;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem fileToolStripMenuItem;
         private ToolStripMenuItem addNewSecretToolStripMenuItem;
