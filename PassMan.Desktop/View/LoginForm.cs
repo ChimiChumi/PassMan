@@ -8,6 +8,7 @@
         public LoginForm()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void label1_Click(object sender, EventArgs e)

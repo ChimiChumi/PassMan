@@ -5,8 +5,6 @@ namespace PassMan.Core
 {
     public class VaultUtils
     {
-        private readonly string dbPath = "Data Source=D:\\University\\PassMan\\resources\\data.db";
-        
         public string AddSecret(Vault vault)
         {
             DataTableUtils table = new DataTableUtils();
@@ -14,7 +12,7 @@ namespace PassMan.Core
 
             try
             {
-                using (var sql_con = new SqliteConnection(dbPath))
+                using (var sql_con = new SqliteConnection(ConfigurationManager.DbPath))
                 {
                     sql_con.Open();
 

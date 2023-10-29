@@ -1,6 +1,4 @@
-﻿using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-using PassMan.Models;
+﻿using PassMan.Models;
 using PassMan.Core;
 
 namespace PassMan.Desktop.View
@@ -14,6 +12,7 @@ namespace PassMan.Desktop.View
         public AddSecretForm(int userId)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             _userId = userId;
         }
 

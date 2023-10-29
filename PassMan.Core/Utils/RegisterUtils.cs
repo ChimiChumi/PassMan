@@ -5,8 +5,6 @@ namespace PassMan.Core
 {
     public class RegisterUtils
     {
-        private readonly string dbPath = "Data Source=D:\\University\\PassMan\\resources\\data.db";
-
         public string RegisterUser(User user)
         {
             DataTableUtils table = new DataTableUtils();
@@ -19,7 +17,7 @@ namespace PassMan.Core
 
             try
             {
-                using (var sql_con = new SqliteConnection(dbPath))
+                using (var sql_con = new SqliteConnection(ConfigurationManager.DbPath))
                 {
                     sql_con.Open();
 
@@ -49,7 +47,7 @@ namespace PassMan.Core
 
         private bool EmailExists(string email)
         {
-            using (var sql_con = new SqliteConnection(dbPath))
+            using (var sql_con = new SqliteConnection(ConfigurationManager.DbPath))
             {
                 sql_con.Open();
 

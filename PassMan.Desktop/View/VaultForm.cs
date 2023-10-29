@@ -14,6 +14,7 @@ namespace PassMan.Desktop.View
         public VaultForm(LoginForm loginForm, int userId)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             this.Load += new EventHandler(this.VaultForm_Load);
             _loginForm = loginForm;
             _userId = userId;

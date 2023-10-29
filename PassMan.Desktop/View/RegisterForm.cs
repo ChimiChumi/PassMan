@@ -14,6 +14,7 @@ namespace PassMan.Desktop.View
         {
             InitializeComponent();
             this.loginForm = loginForm;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void label1_Click(object sender, EventArgs e)

@@ -1,11 +1,8 @@
 ﻿using Microsoft.Data.Sqlite;
+using PassMan.Core;
 
 public class LoginUtils
 {
-    private readonly string dbPath = "Data Source=D:\\University\\PassMan\\resources\\data.db";
-    [System.Runtime.InteropServices.DllImport("kernel32.dll")]
-    private static extern bool AllocConsole();
-
     public class LoginResult
     {
         public bool IsSuccess { get; set; }
@@ -17,7 +14,7 @@ public class LoginUtils
     {
         try
         {
-            using (var sql_con = new SqliteConnection(dbPath))
+            using (var sql_con = new SqliteConnection(ConfigurationManager.DbPath))
             {
                 sql_con.Open();
 
@@ -33,8 +30,6 @@ public class LoginUtils
 
                             if (VerifyPassword(password, storedPassword))
                             {
-                                /*AllocConsole();
-                                Console.WriteLine("User ID: " + userId);*/
                                 return new LoginResult { IsSuccess = true, UserId = userId };
                             }
                             else
@@ -59,11 +54,6 @@ public class LoginUtils
 
     private bool VerifyPassword(string inputPassword, string storedPassword)
     {
-        // Here, you should implement password hashing and compare the hashed input password with the stored hashed password.
-        // NEVER store passwords in plain text in the database.
-        // For simplicity, this example assumes passwords are stored in plain text.
-        // In a real-world application, use a secure hashing algorithm like bcrypt or Argon2.
-
         return inputPassword == storedPassword;
     }
 }

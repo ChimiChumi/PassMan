@@ -5,8 +5,6 @@ namespace PassMan.Core
 {
     public class VaultDataUtils
     {
-        private readonly string dbPath = "Data Source=D:\\University\\PassMan\\resources\\data.db";
-        
         [System.Runtime.InteropServices.DllImport("kernel32.dll")]
         private static extern bool AllocConsole();
 
@@ -16,7 +14,7 @@ namespace PassMan.Core
 
             try
             {
-                using (var connection = new SqliteConnection("Data Source=D:\\University\\PassMan\\resources\\data.db"))
+                using (var connection = new SqliteConnection(ConfigurationManager.DbPath))
                 {
                     connection.Open();
 
@@ -34,6 +32,7 @@ namespace PassMan.Core
             catch (Exception ex)
             {
                 // Handle exception here
+                AllocConsole();
                 Console.WriteLine(ex.Message);
             }
 
