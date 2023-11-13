@@ -1,17 +1,20 @@
 ﻿using Microsoft.Data.Sqlite;
+using PassMan.Models;
+using System.Configuration;
 using System.Data;
 
 namespace PassMan.Core
 {
     public class VaultDataUtils
     {
+        private readonly static string DbPath = ConfigurationManager.ConnectionStrings["db"].ConnectionString;
         public DataTable GetSecrets(int userId)
         {
             DataTable dataTable = new DataTable();
 
             try
             {
-                using (var connection = new SqliteConnection(ConfigurationManager.DbPath))
+                using (var connection = new SqliteConnection(DbPath))
                 {
                     connection.Open();
 

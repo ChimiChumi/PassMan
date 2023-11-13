@@ -1,8 +1,14 @@
 ﻿using Microsoft.Data.Sqlite;
 using PassMan.Core;
+using System.Configuration;
 
 public class LoginUtils
 {
+    [System.Runtime.InteropServices.DllImport("kernel32.dll")]
+    private static extern bool AllocConsole();
+
+    private readonly static string DbPath = ConfigurationManager.ConnectionStrings["db"].ConnectionString;
+
     public class LoginResult
     {
         public bool IsSuccess { get; set; }
@@ -14,7 +20,7 @@ public class LoginUtils
     {
         try
         {
-            using (var sql_con = new SqliteConnection(ConfigurationManager.DbPath))
+            using (var sql_con = new SqliteConnection(DbPath))
             {
                 sql_con.Open();
 

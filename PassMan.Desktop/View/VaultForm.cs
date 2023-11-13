@@ -31,12 +31,12 @@ namespace PassMan.Desktop.View
             DataTable userSecrets = vaultDataUtils.GetSecrets(_userId);
             secretTable.DataSource = userSecrets;
 
-                secretTable.Columns["vaultId"].Visible = false;
-                secretTable.Columns["UserId"].Visible = false;
+            secretTable.Columns["vaultId"].Visible = false;
+            secretTable.Columns["UserId"].Visible = false;
 
-                secretTable.Columns["UserName"].HeaderText = "User Name";
-                secretTable.Columns["WebSite"].HeaderText = "Website";
-                secretTable.Columns["PassWord"].HeaderText = "Pass Code";
+            secretTable.Columns["UserName"].HeaderText = "User Name";
+            secretTable.Columns["WebSite"].HeaderText = "Website";
+            secretTable.Columns["PassWord"].HeaderText = "Pass Code";
         }
 
 
@@ -108,26 +108,30 @@ namespace PassMan.Desktop.View
             }
         }
 
-
-
         private void secretTable_CellEndEdit_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
                 DataGridViewCell editedCell = secretTable.Rows[e.RowIndex].Cells[e.ColumnIndex];
-                string columnName = secretTable.Columns[e.ColumnIndex].Name; // Use Name, not DataPropertyName
+                string columnName = secretTable.Columns[e.ColumnIndex].Name;
                 string editedValue = editedCell.Value?.ToString();
 
                 int recordId = Convert.ToInt32(secretTable.Rows[e.RowIndex].Cells["vaultId"].Value);
 
                 VaultUtils utils = new VaultUtils();
-                bool updateResult = utils.UpdateSecret(recordId, columnName, editedValue); // Use recordId here
+                string updateResult = utils.UpdateSecret(recordId, columnName, editedValue);
 
-                if (!updateResult)
+                if (!string.IsNullOrEmpty(updateResult))
                 {
-                    // Handle the failure case, maybe reload the old value or show a message
+                    MessageBox.Show(updateResult, "Wrong Format", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    LoadSecrets();
                 }
             }
+        }
+
+        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

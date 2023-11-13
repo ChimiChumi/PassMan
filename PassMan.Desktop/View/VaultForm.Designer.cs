@@ -69,6 +69,7 @@
             secretTable.DefaultCellStyle = dataGridViewCellStyle2;
             secretTable.Location = new Point(12, 34);
             secretTable.Name = "secretTable";
+            secretTable.RowHeadersWidth = 51;
             secretTable.RowTemplate.Height = 25;
             secretTable.Size = new Size(531, 404);
             secretTable.TabIndex = 0;
@@ -79,10 +80,11 @@
             // 
             menuStrip1.BackColor = Color.Transparent;
             menuStrip1.Font = new Font("MV Boli", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            menuStrip1.ImageScalingSize = new Size(20, 20);
             menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, updateToolStripMenuItem, deleteToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(555, 31);
+            menuStrip1.Size = new Size(555, 37);
             menuStrip1.TabIndex = 1;
             menuStrip1.Text = "menuStrip1";
             menuStrip1.ItemClicked += menuStrip1_ItemClicked;
@@ -94,14 +96,15 @@
             fileToolStripMenuItem.ForeColor = Color.Black;
             fileToolStripMenuItem.Margin = new Padding(15, 0, 0, 0);
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            fileToolStripMenuItem.Size = new Size(72, 27);
+            fileToolStripMenuItem.Size = new Size(86, 33);
             fileToolStripMenuItem.Text = "Menu";
+            fileToolStripMenuItem.Click += fileToolStripMenuItem_Click;
             // 
             // addNewSecretToolStripMenuItem
             // 
             addNewSecretToolStripMenuItem.BackColor = Color.Silver;
             addNewSecretToolStripMenuItem.Name = "addNewSecretToolStripMenuItem";
-            addNewSecretToolStripMenuItem.Size = new Size(269, 28);
+            addNewSecretToolStripMenuItem.Size = new Size(322, 34);
             addNewSecretToolStripMenuItem.Text = "➕ Add New Secret";
             addNewSecretToolStripMenuItem.Click += AddNewSecret_Click;
             // 
@@ -109,21 +112,21 @@
             // 
             logOutToolStripMenuItem.BackColor = Color.Silver;
             logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            logOutToolStripMenuItem.Size = new Size(269, 28);
+            logOutToolStripMenuItem.Size = new Size(322, 34);
             logOutToolStripMenuItem.Text = "🔐 Log Out";
             logOutToolStripMenuItem.Click += LogOut_Click;
             // 
             // updateToolStripMenuItem
             // 
             updateToolStripMenuItem.Name = "updateToolStripMenuItem";
-            updateToolStripMenuItem.Size = new Size(81, 27);
+            updateToolStripMenuItem.Size = new Size(99, 33);
             updateToolStripMenuItem.Text = "Update";
             updateToolStripMenuItem.Click += updateToolStripMenuItem_Click;
             // 
             // deleteToolStripMenuItem
             // 
             deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            deleteToolStripMenuItem.Size = new Size(75, 27);
+            deleteToolStripMenuItem.Size = new Size(92, 33);
             deleteToolStripMenuItem.Text = "Delete";
             deleteToolStripMenuItem.Click += deleteToolStripMenuItem_Click;
             // 

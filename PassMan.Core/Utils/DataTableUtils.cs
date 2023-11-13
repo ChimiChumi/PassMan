@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.IO;
 using Microsoft.Data.Sqlite;
 
@@ -6,9 +7,11 @@ namespace PassMan.Core
 {
     public class DataTableUtils
     {
+        private readonly static string DbPath = ConfigurationManager.ConnectionStrings["db"].ConnectionString;
+
         public void CreateTable()
         {
-            using (var connection = new SqliteConnection(ConfigurationManager.DbPath))
+            using (var connection = new SqliteConnection(DbPath))
             {
                 connection.Open();
 

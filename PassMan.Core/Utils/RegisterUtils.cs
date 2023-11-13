@@ -1,10 +1,13 @@
 ﻿using Microsoft.Data.Sqlite;
 using PassMan.Models;
+using System.Configuration;
 
 namespace PassMan.Core
 {
     public class RegisterUtils
     {
+        private readonly static string DbPath = ConfigurationManager.ConnectionStrings["db"].ConnectionString;
+
         public string RegisterUser(User user)
         {
             DataTableUtils table = new DataTableUtils();
@@ -17,7 +20,7 @@ namespace PassMan.Core
 
             try
             {
-                using (var sql_con = new SqliteConnection(ConfigurationManager.DbPath))
+                using (var sql_con = new SqliteConnection(DbPath))
                 {
                     sql_con.Open();
 
@@ -47,7 +50,7 @@ namespace PassMan.Core
 
         private bool EmailExists(string email)
         {
-            using (var sql_con = new SqliteConnection(ConfigurationManager.DbPath))
+            using (var sql_con = new SqliteConnection(DbPath))
             {
                 sql_con.Open();
 

@@ -1,10 +1,17 @@
 ﻿using Microsoft.Data.Sqlite;
 using PassMan.Models;
+using System.Configuration;
+using System.Text.RegularExpressions;
 
 namespace PassMan.Core
 {
     public class VaultUtils
     {
+        private readonly static string DbPath = ConfigurationManager.ConnectionStrings["db"].ConnectionString;
+
+        [System.Runtime.InteropServices.DllImport("kernel32.dll")]
+        private static extern bool AllocConsole();
+
         public string AddSecret(Vault vault)
         {
             DataTableUtils table = new DataTableUtils();
@@ -12,7 +19,7 @@ namespace PassMan.Core
 
             try
             {
-                using (var sql_con = new SqliteConnection(ConfigurationManager.DbPath))
+                using (var sql_con = new SqliteConnection(DbPath))
                 {
                     sql_con.Open();
 
@@ -41,37 +48,52 @@ namespace PassMan.Core
             }
         }
 
-        public bool UpdateSecret(int recordId, string columnName, string editedValue)
+        public string UpdateSecret(int recordId, string columnName, string editedValue)
         {
             try
             {
-                using (var connection = new SqliteConnection(ConfigurationManager.DbPath))
+                if (columnName == "password")
+                {
+                    // Regex to check for at least one digit, one lowercase and one uppercase character, and at least 6 characters long
+                    if (!Regex.IsMatch(editedValue, @"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}$"))
+                    {
+                        return "Password must be at least 6 characters long and include uppercase, lowercase characters, and numbers!";
+                    }
+                }
+
+                using (var connection = new SqliteConnection(DbPath))
                 {
                     connection.Open();
-
-                    // Use parameterized queries to prevent SQL injection
                     using (var command = new SqliteCommand($"UPDATE vault SET {columnName} = @editedValue WHERE vaultId = @recordId", connection))
                     {
                         command.Parameters.AddWithValue("@editedValue", editedValue);
                         command.Parameters.AddWithValue("@recordId", recordId);
 
                         int rowsAffected = command.ExecuteNonQuery();
-                        return rowsAffected > 0;
+                        if (rowsAffected > 0)
+                        {
+                            return ""; // Successful update, no error message
+                        }
+                        else
+                        {
+                            return "Update failed, no rows affected."; // Error in updating the database
+                        }
                     }
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return "An exception occurred: " + ex.Message; // Return the exception message
             }
         }
+
 
 
         public bool DeleteSecret(int recordId)
         {
             try
             {
-                using (var connection = new SqliteConnection(ConfigurationManager.DbPath))
+                using (var connection = new SqliteConnection(DbPath))
                 {
                     connection.Open();
 
