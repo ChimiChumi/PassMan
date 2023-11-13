@@ -18,8 +18,6 @@ namespace PassMan.Desktop.View
             this.Load += new EventHandler(this.VaultForm_Load);
             _loginForm = loginForm;
             _userId = userId;
-
-            secretTable.Columns.Add("RowNum", "No.");
         }
 
         private void VaultForm_Load(object sender, EventArgs e)
@@ -33,15 +31,14 @@ namespace PassMan.Desktop.View
             DataTable userSecrets = vaultDataUtils.GetSecrets(_userId);
             secretTable.DataSource = userSecrets;
 
-            secretTable.Columns["Username"].HeaderText = "User Name";
-            secretTable.Columns["Website"].HeaderText = "Website";
-            secretTable.Columns["Password"].HeaderText = "Pass Code";
+                secretTable.Columns["vaultId"].Visible = false;
+                secretTable.Columns["UserId"].Visible = false;
 
-            for (int i = 0; i < secretTable.Rows.Count; i++)
-            {
-                secretTable.Rows[i].Cells["RowNum"].Value = (i + 1).ToString();
-            }
+                secretTable.Columns["UserName"].HeaderText = "User Name";
+                secretTable.Columns["WebSite"].HeaderText = "Website";
+                secretTable.Columns["PassWord"].HeaderText = "Pass Code";
         }
+
 
         private void LogOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -77,6 +74,60 @@ namespace PassMan.Desktop.View
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void updateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (secretTable.SelectedCells.Count > 0)
+            {
+                int rowIndex = secretTable.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = secretTable.Rows[rowIndex];
+
+                secretTable.BeginEdit(true);
+            }
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (secretTable.SelectedCells.Count > 0)
+            {
+                int rowIndex = secretTable.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = secretTable.Rows[rowIndex];
+
+                int recordIdToDelete = Convert.ToInt32(selectedRow.Cells["vaultId"].Value);
+
+                VaultUtils utils = new VaultUtils();
+                if (utils.DeleteSecret(recordIdToDelete))
+                {
+                    secretTable.Rows.RemoveAt(rowIndex);
+                }
+                else
+                {
+                    MessageBox.Show("Failed to delete the record.");
+                }
+            }
+        }
+
+
+
+        private void secretTable_CellEndEdit_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                DataGridViewCell editedCell = secretTable.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                string columnName = secretTable.Columns[e.ColumnIndex].Name; // Use Name, not DataPropertyName
+                string editedValue = editedCell.Value?.ToString();
+
+                int recordId = Convert.ToInt32(secretTable.Rows[e.RowIndex].Cells["vaultId"].Value);
+
+                VaultUtils utils = new VaultUtils();
+                bool updateResult = utils.UpdateSecret(recordId, columnName, editedValue); // Use recordId here
+
+                if (!updateResult)
+                {
+                    // Handle the failure case, maybe reload the old value or show a message
+                }
+            }
         }
     }
 }

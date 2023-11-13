@@ -40,5 +40,54 @@ namespace PassMan.Core
                 return "An error occurred: " + ex.Message;
             }
         }
+
+        public bool UpdateSecret(int recordId, string columnName, string editedValue)
+        {
+            try
+            {
+                using (var connection = new SqliteConnection(ConfigurationManager.DbPath))
+                {
+                    connection.Open();
+
+                    // Use parameterized queries to prevent SQL injection
+                    using (var command = new SqliteCommand($"UPDATE vault SET {columnName} = @editedValue WHERE vaultId = @recordId", connection))
+                    {
+                        command.Parameters.AddWithValue("@editedValue", editedValue);
+                        command.Parameters.AddWithValue("@recordId", recordId);
+
+                        int rowsAffected = command.ExecuteNonQuery();
+                        return rowsAffected > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+
+        public bool DeleteSecret(int recordId)
+        {
+            try
+            {
+                using (var connection = new SqliteConnection(ConfigurationManager.DbPath))
+                {
+                    connection.Open();
+
+                    using (var command = new SqliteCommand("DELETE FROM vault WHERE vaultId = @vaultId", connection))
+                    {
+                        command.Parameters.AddWithValue("@vaultId", recordId);
+
+                        int rowsAffected = command.ExecuteNonQuery();
+                        return rowsAffected > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
     }
 }

@@ -5,9 +5,6 @@ namespace PassMan.Core
 {
     public class VaultDataUtils
     {
-        [System.Runtime.InteropServices.DllImport("kernel32.dll")]
-        private static extern bool AllocConsole();
-
         public DataTable GetSecrets(int userId)
         {
             DataTable dataTable = new DataTable();
@@ -18,7 +15,8 @@ namespace PassMan.Core
                 {
                     connection.Open();
 
-                    using (var command = new SqliteCommand("SELECT UserName, WebSite, PassWord FROM vault WHERE userId = @userId", connection))
+                    // Include UserId in the SELECT query
+                    using (var command = new SqliteCommand("SELECT vaultId, UserId, UserName, WebSite, PassWord FROM vault WHERE userId = @userId", connection))
                     {
                         command.Parameters.AddWithValue("@userId", userId);
 
@@ -31,9 +29,8 @@ namespace PassMan.Core
             }
             catch (Exception ex)
             {
-                // Handle exception here
-                AllocConsole();
-                Console.WriteLine(ex.Message);
+                // Consider handling the exception more robustly
+                Console.WriteLine("Error: " + ex.Message);
             }
 
             return dataTable;

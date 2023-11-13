@@ -15,7 +15,7 @@ namespace PassMan.Models
         }
 
         [Key]
-        public int Id { get; set; }
+        public int VaultId { get; set; }
 
         [ForeignKey("UserId")]
         public int UserId { get; set; }
